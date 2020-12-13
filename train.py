@@ -6,11 +6,11 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 03:23:06 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 19:37:50 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/13 20:55:56 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-from src.algos import gradient_descent, h
+from src.algos import least_square, bgd, sgd, h
 from src.csv_tools import df_fromCSV
 from src.params import write_params
 import  src.ftMath as myMath
@@ -55,8 +55,18 @@ def     train_model():
     df = df_fromCSV('Data/data.csv')
     Y = np.array(df['price'])
     X = np.array(df['km'])
-    # Gradient Descent
-    theta = gradient_descent(X, Y, 0.01)
+    # Normalize X and Y:
+    maxKm = myMath.ft_max(X)
+    maxPrice = myMath.ft_max(Y)
+    devide_x = lambda x: x / maxKm
+    devide_y = lambda y: y / maxPrice
+    norm_X = np.array([devide_x(x) for x in X])
+    norm_Y = np.array([devide_y(y) for y in Y])
+    # Apply Algorithm
+    theta = sgd(norm_X, norm_Y, 0.01)
+    # Adapt the Theta to the Denormalization
+    theta[1] = theta[1] * maxPrice / maxKm
+    theta[0] = theta[0] * maxPrice
     # Write Thetas in params file
     write_params(theta)
     print_precision(theta, X, Y)
