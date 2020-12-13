@@ -10,42 +10,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-from src.algos import least_square, bgd, sgd, h
+from src.algos import least_square, bgd, sgd
+from src.precision import print_precision
 from src.csv_tools import df_fromCSV
 from src.params import write_params
 import  src.ftMath as myMath
 import  pandas as pd
 import  numpy as np
+import  sys
+
+# Macros:
+BGD = 0
+SGD = 1
+LS = 2
+
+# Algorithm Variables:
+algo = BGD
+learning_rate = 0.01
 
 
-def     print_precision(theta, X, Y):
+def     pick_algo():
     '''
-    Print the precision of the Algorithm using:
-    MAPE : Mean absolute percentage error (is the percentage equivalent of MAE)
-    RMSE : Root of Mean Squared Error
-           (is the average of the squares of the difference between observed and predicted values)
-    MAE: Mean Absolute Error
-         (It’s the average over the test sample of the absolute differences between prediction and actual observation)
+    Pick an algo depend on the flag
     '''
-    mape = 0
-    rmse = 0
-    mae = 0
-    for predict, y in zip(h(theta, X), Y):
-        mape += myMath.ft_abs(y - predict) / y
-        rmse += (y - predict) ** 2
-        mae += myMath.ft_abs(y - predict)
-    # MAPE calculate the error in percente
-    mape = round(100 - (100 * mape / Y.shape[0]), 4)
-    # RMSE calculate
-    rmse = round((rmse / Y.shape[0]) ** 0.5, 4)
-    # MAE calculate
-    mae = round(mape / Y.shape[0], 4)
-    print('\nTraining DONE!\n')
-    print('Precision of the algorithm using:')
-    print(f'MAPE: {mape} %')
-    print(f'RMSE: {rmse}')
-    print(f'MAE: {mae}')
-    
+    # Check if nbr of args > 2
+    if len(sys.argv) > 2:
+        print('error')
+        exit(1)
+    # Apply fonction only if nbr of args == 2
+    if len(sys.argv) == 2:
+        flag = sys.argv[1]
+        # Check syntax of the flag
+        if True:
+            pass
+
+
 
 def     train_model():
     '''
