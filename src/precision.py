@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    precision.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+         #
+#    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 22:04:59 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 22:04:59 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/13 23:10:50 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ def     print_precision(theta, X, Y):
     rmse = round((rmse / Y.shape[0]) ** 0.5, 4)
     # MAE calculate
     mae = round(mape / Y.shape[0], 4)
-    print('\nTraining DONE!\n')
     print('Precision of the algorithm using:')
     print(f'MAPE: {mape} %')
     print(f'RMSE: {rmse}')
