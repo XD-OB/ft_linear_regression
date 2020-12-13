@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    predict.py                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+         #
+#    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 00:36:02 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 00:36:02 by obelouch         ###   ########.ma        #
+#    Updated: 2020/12/13 19:04:37 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-#!/usr/bin/env python3
 
-from src.get_params import get_params
+from src.params import get_params
 from src.ftMath import ft_isFloat
 
 
@@ -23,11 +22,11 @@ def     predict():
     while not ft_isFloat(user_input):
         user_input = input('Please enter a mileage: ')
     mileage = float(user_input)
-    print("mileage: " + str(mileage))        #########################
     # Get Thetas from the file if it exist
     theta = get_params()
     estimate_price = theta[0] + theta[1] * mileage
     print(f'This car worth ${round(estimate_price)} euro')
 
 
+# Launch the program
 predict()

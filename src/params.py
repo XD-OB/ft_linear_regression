@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    get_params.py                                      :+:      :+:    :+:    #
+#    params.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+         #
+#    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 05:21:37 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 05:21:37 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/13 19:03:06 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,3 +40,13 @@ def     get_params():
         # Close the file
         fd.close()
     return theta
+
+
+def     write_params(theta):
+    '''
+    Write Theta0, Theta1 in the params file
+    '''
+    fd = open('Data/params', 'w')
+    fd.write(f'{theta[0]} {theta[1]}')
+    # Close the file
+    fd.close()
