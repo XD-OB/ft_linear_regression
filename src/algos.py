@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 19:05:17 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 23:21:16 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/14 00:51:59 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ def     bgd(X, Y, alpha):
 
 
 ################################################################################
-##########################   Stochastic Descent   ##############################
+#####################   Stochastic GradientDescent   ###########################
 #
 # In Batch Gradient Descent, we use the whole training data per epoch whereas,
 # in Stochastic Gradient Descent, we use only single training example per epoch
