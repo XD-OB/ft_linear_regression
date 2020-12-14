@@ -4,10 +4,10 @@ The aim of this project is to introduce you to the basic concept behind machine 
 by using a linear function train with a gradient descent algorithm.
 
 ### Subject PDF:
-[project_pdf!](http://https//github.com/XD-OB/ft_linear_regression/blob/master/Files/en.subject.pdf)
+[project_pdf!](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/en.subject.pdf)
 
 ### Cook Book:
-[Cook_book!](http://https//github.com/XD-OB/ft_linear_regression/blob/master/Files/cook_book.ipynb)
+[Cook_book!](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/cook_book.ipynb)
 
 ## Install modules:
 In order to launch the scripts you should install the following modules and packages:
@@ -23,17 +23,17 @@ In order to launch the scripts you should install the following modules and pack
 - LS: Least Squares   (Bonus)
 - alpha: learning rate (a number < 1)   (Bonus)
 
-(Bonus) Once the Training is done a bunch metrics evoluations are shown to evaluate the model, like:
+Once the Training is done a bunch metrics evoluations are shown to evaluate the model: (Bonus)
 - MAPE : Mean absolute percentage error
 - RMSE : Root of Mean Squared Error
 - MAE: Mean Absolute Error
 
-![Screen Shot 1](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/train.JPG)
+![Screen Shot 1](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/train.png)
 
 ## Plot the Dataset with the model hypothesis: (Bonus)
 * python3 visualizer.py
 
-![Screen Shot 2](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/visualizer.JPG)
+![Screen Shot 2](https://github.com/XD-OB/ft_linear_regression/blob/master/Files/visualizer.png)
 
 ## Predict the Price for a given mileage:
 Using the Parameters tuned with the trained model using the given dataset, i can predict the price of a car for a mileage given as input by the User.
