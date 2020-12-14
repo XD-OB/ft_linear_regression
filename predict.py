@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 00:36:02 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 19:04:37 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/14 04:32:52 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ def     predict():
     # Get Thetas from the file if it exist
     theta = get_params()
     estimate_price = theta[0] + theta[1] * mileage
-    print(f'This car worth ${round(estimate_price)} euro')
+    print(f'This car worth {round(estimate_price)} euro')
 
 
 # Launch the program
