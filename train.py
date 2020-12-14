@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 03:23:06 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/14 00:18:32 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/14 02:08:00 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,26 +21,43 @@ import  sys
 import  re
 
 
+# Error Macros:
+ERROR_FLAG = 1
+ERROR_ARGC = 2
+
 # Algorithm Variables:
 algo = 'BGD'
 alpha = 0.01
 
 
-def     set_ALGOandLR(flag_algo, flag_alpha):
+def     set_ALGOandLR(res_algo, res_alpha):
     '''
     Set the Algorithm and Learning Rate depend on the flag
     '''
     global  algo
     global  alpha
 
-    if flag_algo:
-        algo = flag_algo
-    if flag_alpha:
-        alpha = float(flag_alpha)
+    if res_algo:
+        algo = res_algo.group()
+    if res_alpha:
+        alpha = float(res_alpha.group())
     if alpha > 1:
         print('The Gradient Discent Diverge with this learning rate value!')
         print('Setting the default value: 0.01')
         alpha = 0.01
+
+
+def     exit_usage(error):
+    if error == ERROR_ARGC:
+        print('Error: Wrong number of arguments!')
+    if error == ERROR_FLAG:
+        print('Error: Wrong flag!')
+    print('\nUsage: python3 train.py [-BGD | -SGD | -LS][{< alpha >}]')
+    print('  SGD: Stochastic Gradient Descent')
+    print('  BGD: Batch Gradient Descent')
+    print('  LS: Least Squares')
+    print('  alpha: learning rate < 1')
+    exit(1)
 
 
 def     pick_algo():
@@ -49,19 +66,17 @@ def     pick_algo():
     '''
     # Check if nbr of args > 2
     if len(sys.argv) > 2:
-        print('error')
-        exit(1)
+        exit_usage(ERROR_ARGC)
     flag = sys.argv[1] 
     # Check syntax of the flag
     if not re.match(r'^-(BGD|SGD|LS)(\{[0-9]+(\.[0-9]+)?\})?$', flag):
-        print('usage error')
-        exit(1)
+        exit_usage(ERROR_FLAG)
     # Set the variables: algo, alpha
     set_ALGOandLR(
         # algo part from the flag 
-        re.search(r'[A-Z]+', flag).group(),
+        re.search(r'[A-Z]+', flag),
         # alpha part from the flag 
-        re.search(r'[0-9]+(\.[0-9]+)?', flag).group(),
+        re.search(r'[0-9]+(\.[0-9]+)?', flag),
     )
 
 
@@ -77,6 +92,9 @@ def     get_theta(norm_X, norm_Y):
 
 
 def     print_loading():
+    '''
+    Print The Loading Message depend on the Algo type
+    '''
     print('\nTraining using ', end='')
     if algo == 'SGD':
         print('Stochastic Gradient Descent Algorithm ....\n')
