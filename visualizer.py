@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 03:37:21 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/13 19:35:28 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/14 04:54:38 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ def     visualizer():
         'km',
         'price',
     )
+    # Add Lables
+    plt.xlabel("Km")
+    plt.ylabel("Euro")
     #####################
     theta = get_params()
     line_plot(
